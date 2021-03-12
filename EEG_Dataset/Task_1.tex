@@ -1,0 +1,295 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Task\_1.R},
+  pdfauthor={HP},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Task\_1.R}
+\author{HP}
+\date{2021-03-11}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Task 1:}
+
+\CommentTok{\# Import EEG input,output and time signals:}
+\NormalTok{inputs }\OtherTok{=} \FunctionTok{read.csv}\NormalTok{(}\AttributeTok{file =} \StringTok{"Inputs\_x.csv"}\NormalTok{, }\AttributeTok{header=}\ConstantTok{FALSE}\NormalTok{, }\AttributeTok{sep=}\StringTok{","}\NormalTok{,}\AttributeTok{col.names =} \FunctionTok{c}\NormalTok{(}\StringTok{"Input\_x1"}\NormalTok{,}\StringTok{"Input\_x2"}\NormalTok{,}\StringTok{"Input\_x3"}\NormalTok{,}\StringTok{"Input\_x4"}\NormalTok{))}
+\NormalTok{output }\OtherTok{=} \FunctionTok{read.csv}\NormalTok{(}\AttributeTok{file=}\StringTok{"Output\_y.csv"}\NormalTok{,}\AttributeTok{header=}\ConstantTok{FALSE}\NormalTok{,}\AttributeTok{col.names =} \StringTok{"Output\_y"}\NormalTok{)}
+\NormalTok{time\_series}\OtherTok{=}\FunctionTok{read.csv}\NormalTok{(}\AttributeTok{file=}\StringTok{"time\_series.csv"}\NormalTok{,}\AttributeTok{header=}\ConstantTok{FALSE}\NormalTok{,}\AttributeTok{col.names =} \StringTok{"Time\_in\_secs"}\NormalTok{, }\AttributeTok{fileEncoding =} \StringTok{"UTF{-}8{-}BOM"}\NormalTok{ )}
+\NormalTok{input\_output }\OtherTok{=} \FunctionTok{cbind}\NormalTok{(inputs,output)}
+
+\CommentTok{\#Augmented Data:}
+\NormalTok{EEG\_Aug\_data}\OtherTok{=}\FunctionTok{cbind}\NormalTok{(time\_series,inputs,output)}
+\FunctionTok{head}\NormalTok{(EEG\_Aug\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Time_in_secs   Input_x1   Input_x2    Input_x3   Input_x4    Output_y
+## 1        0.000 -3.0615656 -1.8651967 -2.90981227 -0.3394280 -1.11678535
+## 2        0.002  0.2446936  2.0391609  0.99930151  0.6122276  1.33388908
+## 3        0.004 -1.2009670  0.1774090 -0.79654755 -2.6770103  0.21606254
+## 4        0.006 -0.7279816 -1.5566153  0.01039548 -1.6230083  0.17645157
+## 5        0.008  2.2049284  0.7661962  1.86810725  1.4313685  0.01104331
+## 6        0.010  3.1672849  1.8484216  1.73971053  2.4726877  1.03716149
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#To find the Central Tendencey Measures:}
+\FunctionTok{summary}\NormalTok{(input\_output)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     Input_x1          Input_x2           Input_x3           Input_x4       
+##  Min.   :-8.6660   Min.   :-6.13928   Min.   :-5.97673   Min.   :-8.79904  
+##  1st Qu.:-2.2482   1st Qu.:-1.40102   1st Qu.:-1.57921   1st Qu.:-2.18124  
+##  Median : 0.2447   Median : 0.08675   Median :-0.09896   Median : 0.08573  
+##  Mean   :-0.0154   Mean   : 0.03334   Mean   : 0.03360   Mean   : 0.01156  
+##  3rd Qu.: 2.6706   3rd Qu.: 1.47238   3rd Qu.: 1.62626   3rd Qu.: 2.44413  
+##  Max.   : 8.1559   Max.   : 5.76075   Max.   : 6.12148   Max.   : 8.06003  
+##     Output_y      
+##  Min.   :-8.7165  
+##  1st Qu.:-0.2230  
+##  Median : 0.3281  
+##  Mean   : 0.1085  
+##  3rd Qu.: 0.8544  
+##  Max.   : 4.9507
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Outlier Detection in each signals:}
+
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{)) }\CommentTok{\# Used to plot 4 figures in one plot area. }
+                  \CommentTok{\# Click zoom to observe the plots clearly.}
+
+\CommentTok{\#Calculation of IQR values and Boxplot of 4 input EEG signals:}
+\CommentTok{\#Input\_X1 data:}
+\NormalTok{IQR\_Upper\_Bound\_Input\_X1 }\OtherTok{=} \FloatTok{2.6706} \SpecialCharTok{+} \FloatTok{1.5} \SpecialCharTok{*}\NormalTok{ (}\FloatTok{2.6706} \SpecialCharTok{+} \FloatTok{2.2482}\NormalTok{)}
+\NormalTok{IQR\_Lower\_Bound\_Input\_x1 }\OtherTok{=} \FloatTok{2.6706} \SpecialCharTok{{-}} \FloatTok{1.5} \SpecialCharTok{*}\NormalTok{ (}\FloatTok{2.6706} \SpecialCharTok{+} \FloatTok{2.2482}\NormalTok{)}
+\FunctionTok{boxplot}\NormalTok{(input\_output}\SpecialCharTok{$}\NormalTok{Input\_x1)}
+
+\CommentTok{\#Input\_x2 data:}
+\NormalTok{IQR\_Upper\_Bound\_Input\_X2 }\OtherTok{=} \FloatTok{1.4723} \SpecialCharTok{+} \FloatTok{1.5} \SpecialCharTok{*}\NormalTok{ (}\FloatTok{1.4723} \SpecialCharTok{+} \FloatTok{1.4010}\NormalTok{)}
+\NormalTok{IQR\_Lower\_Bound\_Input\_x2 }\OtherTok{=} \FloatTok{1.4723} \SpecialCharTok{{-}} \FloatTok{1.5} \SpecialCharTok{*}\NormalTok{ (}\FloatTok{1.4723} \SpecialCharTok{+} \FloatTok{1.4010}\NormalTok{)}
+\FunctionTok{boxplot}\NormalTok{(input\_output}\SpecialCharTok{$}\NormalTok{Input\_x2) }
+
+\CommentTok{\#Input\_x3 data:}
+\NormalTok{IQR\_Upper\_Bound\_Input\_X3 }\OtherTok{=} \FloatTok{1.6262} \SpecialCharTok{+} \FloatTok{1.5} \SpecialCharTok{*}\NormalTok{ (}\FloatTok{1.6262} \SpecialCharTok{+} \FloatTok{1.5792}\NormalTok{)}
+\NormalTok{IQR\_Lower\_Bound\_Input\_x3 }\OtherTok{=} \FloatTok{1.6262} \SpecialCharTok{{-}} \FloatTok{1.5} \SpecialCharTok{*}\NormalTok{ (}\FloatTok{1.6262} \SpecialCharTok{+} \FloatTok{1.5792}\NormalTok{)}
+\FunctionTok{boxplot}\NormalTok{(input\_output}\SpecialCharTok{$}\NormalTok{Input\_x3)}
+
+\CommentTok{\#Input\_X4 data:}
+\NormalTok{IQR\_Upper\_Bound\_Input\_X1 }\OtherTok{=} \FloatTok{2.4441} \SpecialCharTok{+} \FloatTok{1.5} \SpecialCharTok{*}\NormalTok{ (}\FloatTok{2.4441} \SpecialCharTok{+} \FloatTok{2.1812}\NormalTok{)}
+\NormalTok{IQR\_Lower\_Bound\_Input\_x1 }\OtherTok{=} \FloatTok{2.4441} \SpecialCharTok{{-}} \FloatTok{1.5} \SpecialCharTok{*}\NormalTok{ (}\FloatTok{2.4441} \SpecialCharTok{+} \FloatTok{2.1812}\NormalTok{)}
+\FunctionTok{boxplot}\NormalTok{(input\_output}\SpecialCharTok{$}\NormalTok{Input\_x4)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Task_1_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Time Series Plot of input and output signals to study the stationarity:}
+
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\FunctionTok{plot}\NormalTok{(}\AttributeTok{x =}\NormalTok{ time\_series}\SpecialCharTok{$}\NormalTok{Time\_in\_secs, }\AttributeTok{y =}\NormalTok{ inputs}\SpecialCharTok{$}\NormalTok{Input\_x1, }\AttributeTok{xlab =} \StringTok{"Time(secs)"}\NormalTok{, }\AttributeTok{ylab =}\StringTok{"X1"}\NormalTok{,}\AttributeTok{type =} \StringTok{"l"}\NormalTok{,}\AttributeTok{main =}\StringTok{"Time Vs Input\_X1"}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h=}\FunctionTok{mean}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x1))}
+\FunctionTok{plot}\NormalTok{(}\AttributeTok{x =}\NormalTok{ time\_series}\SpecialCharTok{$}\NormalTok{Time\_in\_secs, }\AttributeTok{y =}\NormalTok{ inputs}\SpecialCharTok{$}\NormalTok{Input\_x2, }\AttributeTok{xlab =} \StringTok{"Time(secs)"}\NormalTok{, }\AttributeTok{ylab =}\StringTok{"X2"}\NormalTok{,}\AttributeTok{type =} \StringTok{"l"}\NormalTok{,}\AttributeTok{main =} \StringTok{"Time Vs Input\_X2"}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h=}\FunctionTok{mean}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x2))}
+\FunctionTok{plot}\NormalTok{(}\AttributeTok{x =}\NormalTok{ time\_series}\SpecialCharTok{$}\NormalTok{Time\_in\_secs, }\AttributeTok{y =}\NormalTok{ inputs}\SpecialCharTok{$}\NormalTok{Input\_x3, }\AttributeTok{xlab =} \StringTok{"Time(secs)"}\NormalTok{, }\AttributeTok{ylab =}\StringTok{"X3"}\NormalTok{,}\AttributeTok{type =} \StringTok{"l"}\NormalTok{,}\AttributeTok{main =} \StringTok{"Time Vs Input\_X3"}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h=}\FunctionTok{mean}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x3))}
+\FunctionTok{plot}\NormalTok{(}\AttributeTok{x =}\NormalTok{ time\_series}\SpecialCharTok{$}\NormalTok{Time\_in\_secs, }\AttributeTok{y =}\NormalTok{ inputs}\SpecialCharTok{$}\NormalTok{Input\_x4, }\AttributeTok{xlab =} \StringTok{"Time(secs)"}\NormalTok{, }\AttributeTok{ylab =}\StringTok{"X4"}\NormalTok{,}\AttributeTok{type =} \StringTok{"l"}\NormalTok{,}\AttributeTok{main =} \StringTok{"Time Vs Input\_X4"}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h=}\FunctionTok{mean}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x4))}
+\FunctionTok{plot}\NormalTok{(}\AttributeTok{x =}\NormalTok{ time\_series}\SpecialCharTok{$}\NormalTok{Time\_in\_secs, }\AttributeTok{y =}\NormalTok{ output}\SpecialCharTok{$}\NormalTok{Output\_y, }\AttributeTok{xlab =} \StringTok{"Time(secs)"}\NormalTok{, }\AttributeTok{ylab =}\StringTok{"Y"}\NormalTok{,}\AttributeTok{type =} \StringTok{"l"}\NormalTok{,}\AttributeTok{main =} \StringTok{"Time Vs Output\_Y"}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h=}\FunctionTok{mean}\NormalTok{(output}\SpecialCharTok{$}\NormalTok{Output\_y))}
+
+\CommentTok{\#Histogram plot to observe the distbution of the signals:}
+
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Task_1_files/figure-latex/unnamed-chunk-1-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x1,}\AttributeTok{freq =} \ConstantTok{FALSE}\NormalTok{ , }\AttributeTok{col =} \StringTok{"green"}\NormalTok{,}\AttributeTok{border =} \StringTok{"red"}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(}\FunctionTok{density}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x1,}\AttributeTok{kernel=}\StringTok{"gaussian"}\NormalTok{))}
+\FunctionTok{hist}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x2,}\AttributeTok{freq =} \ConstantTok{FALSE}\NormalTok{ , }\AttributeTok{col =} \StringTok{"green"}\NormalTok{,}\AttributeTok{border =} \StringTok{"red"}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(}\FunctionTok{density}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x2,}\AttributeTok{kernel=}\StringTok{"gaussian"}\NormalTok{))}
+\FunctionTok{hist}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x3,}\AttributeTok{freq =} \ConstantTok{FALSE}\NormalTok{ , }\AttributeTok{col =} \StringTok{"green"}\NormalTok{,}\AttributeTok{border =} \StringTok{"red"}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(}\FunctionTok{density}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x3,}\AttributeTok{kernel=}\StringTok{"gaussian"}\NormalTok{))}
+\FunctionTok{hist}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x4,}\AttributeTok{freq =} \ConstantTok{FALSE}\NormalTok{ , }\AttributeTok{col =} \StringTok{"green"}\NormalTok{,}\AttributeTok{border =} \StringTok{"red"}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(}\FunctionTok{density}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x4,}\AttributeTok{kernel=}\StringTok{"gaussian"}\NormalTok{))}
+\FunctionTok{hist}\NormalTok{(output}\SpecialCharTok{$}\NormalTok{Output\_y,}\AttributeTok{freq =} \ConstantTok{FALSE}\NormalTok{ , }\AttributeTok{col =} \StringTok{"green"}\NormalTok{,}\AttributeTok{border =} \StringTok{"red"}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(}\FunctionTok{density}\NormalTok{(output}\SpecialCharTok{$}\NormalTok{Output\_y,}\AttributeTok{kernel=}\StringTok{"gaussian"}\NormalTok{))}
+
+\CommentTok{\# Scatter Plot between various inputs and output EEG signals:}
+\CommentTok{\# Fitting linear model on to the scatter plot to find the dependancy:}
+
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Task_1_files/figure-latex/unnamed-chunk-1-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x1,inputs}\SpecialCharTok{$}\NormalTok{Input\_x2)}
+\FunctionTok{abline}\NormalTok{(}\FunctionTok{lm}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x2}\SpecialCharTok{\textasciitilde{}}\NormalTok{inputs}\SpecialCharTok{$}\NormalTok{Input\_x1),}\AttributeTok{col=}\StringTok{"red"}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x2,inputs}\SpecialCharTok{$}\NormalTok{Input\_x3)}
+\FunctionTok{abline}\NormalTok{(}\FunctionTok{lm}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x3}\SpecialCharTok{\textasciitilde{}}\NormalTok{inputs}\SpecialCharTok{$}\NormalTok{Input\_x2),}\AttributeTok{col=}\StringTok{"red"}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x3,inputs}\SpecialCharTok{$}\NormalTok{Input\_x4)}
+\FunctionTok{abline}\NormalTok{(}\FunctionTok{lm}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x4}\SpecialCharTok{\textasciitilde{}}\NormalTok{inputs}\SpecialCharTok{$}\NormalTok{Input\_x3),}\AttributeTok{col=}\StringTok{"red"}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x4,inputs}\SpecialCharTok{$}\NormalTok{Input\_x1)}
+\FunctionTok{abline}\NormalTok{(}\FunctionTok{lm}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x1}\SpecialCharTok{\textasciitilde{}}\NormalTok{inputs}\SpecialCharTok{$}\NormalTok{Input\_x4),}\AttributeTok{col=}\StringTok{"red"}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x1,output}\SpecialCharTok{$}\NormalTok{Output\_y)}
+\FunctionTok{abline}\NormalTok{(}\FunctionTok{lm}\NormalTok{(output}\SpecialCharTok{$}\NormalTok{Output\_y}\SpecialCharTok{\textasciitilde{}}\NormalTok{inputs}\SpecialCharTok{$}\NormalTok{Input\_x1),}\AttributeTok{col=}\StringTok{"red"}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x2,output}\SpecialCharTok{$}\NormalTok{Output\_y)}
+\FunctionTok{abline}\NormalTok{(}\FunctionTok{lm}\NormalTok{(output}\SpecialCharTok{$}\NormalTok{Output\_y}\SpecialCharTok{\textasciitilde{}}\NormalTok{inputs}\SpecialCharTok{$}\NormalTok{Input\_x2),}\AttributeTok{col=}\StringTok{"red"}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x3,output}\SpecialCharTok{$}\NormalTok{Output\_y)}
+\FunctionTok{abline}\NormalTok{(}\FunctionTok{lm}\NormalTok{(output}\SpecialCharTok{$}\NormalTok{Output\_y}\SpecialCharTok{\textasciitilde{}}\NormalTok{inputs}\SpecialCharTok{$}\NormalTok{Input\_x3),}\AttributeTok{col=}\StringTok{"red"}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(inputs}\SpecialCharTok{$}\NormalTok{Input\_x4,output}\SpecialCharTok{$}\NormalTok{Output\_y)}
+\FunctionTok{abline}\NormalTok{(}\FunctionTok{lm}\NormalTok{(output}\SpecialCharTok{$}\NormalTok{Output\_y}\SpecialCharTok{\textasciitilde{}}\NormalTok{inputs}\SpecialCharTok{$}\NormalTok{Input\_x4),}\AttributeTok{col=}\StringTok{"red"}\NormalTok{)}
+
+\CommentTok{\# Correlation measures between signals:}
+
+\NormalTok{correlate\_measure }\OtherTok{=} \FunctionTok{cor}\NormalTok{(input\_output) }\CommentTok{\# Values are printed in Tabular form}
+\NormalTok{correlate\_measure}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           Input_x1  Input_x2  Input_x3  Input_x4  Output_y
+## Input_x1 1.0000000 0.2619758 0.5835224 0.8057686 0.7288988
+## Input_x2 0.2619758 1.0000000 0.5207327 0.3658827 0.1663955
+## Input_x3 0.5835224 0.5207327 1.0000000 0.7107202 0.4069755
+## Input_x4 0.8057686 0.3658827 0.7107202 1.0000000 0.5705081
+## Output_y 0.7288988 0.1663955 0.4069755 0.5705081 1.0000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#install.packages("corrplot")}
+\FunctionTok{library}\NormalTok{(corrplot) }\CommentTok{\# using corrplot to add aesthetics}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## corrplot 0.84 loaded
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{corrplot}\NormalTok{(correlate\_measure,}\AttributeTok{method=}\StringTok{"number"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Task_1_files/figure-latex/unnamed-chunk-1-4.pdf}
+
+\end{document}
